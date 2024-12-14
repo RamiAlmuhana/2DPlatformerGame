@@ -1,16 +1,24 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private float speed;
+    private Rigidbody2D body;
+
+    private void Awake()
     {
-        
+        body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        body.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            body.linearVelocity = new Vector2(body.velocity.x, speed);
+        }
     }
 }
