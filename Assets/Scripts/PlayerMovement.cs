@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         
-        body.linearVelocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
 
         //flip player when moving left-right
         if (horizontalInput > 0.01f)
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        body.linearVelocity = new Vector2(body.velocity.x, speed);
+        body.linearVelocity = new Vector2(body.linearVelocity.x, speed);
         anim.SetTrigger("jump");
         grounded = false;
     }
