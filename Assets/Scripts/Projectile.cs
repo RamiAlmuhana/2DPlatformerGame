@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         if (hit) return;
-        { }
+        
         float movementSpeed = speed * Time.deltaTime * direction;
         transform.Translate(movementSpeed, 0, 0);
         
