@@ -55,4 +55,10 @@ public class PlayerMovement : MonoBehaviour
             grounded = true;
         }
     }
+    
+    public bool IsGrounded()
+    {
+        return grounded;
+    }
+
 }
