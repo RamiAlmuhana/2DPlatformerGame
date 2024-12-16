@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
+    private float jumpForce;
+    [SerializeField]
     private float speed;
     private Rigidbody2D body;
     private Animator anim;
     private bool grounded;
+
 
     private void Awake()
     {
@@ -43,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        body.linearVelocity = new Vector2(body.linearVelocity.x, speed);
+        body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
         anim.SetTrigger("jump");
         grounded = false;
     }
